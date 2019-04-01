@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Card from './components/Card.js'
+// import './App.css';
 
 const mtg = require('mtgsdk');
 
@@ -16,14 +16,16 @@ class App extends Component {
   }
 
   componentDidMount() {
+    console.log(mtg)
     mtg.card.where(
-      {name: 'invent'}
-      // {supertypes: 'Legendary', subtypes: 'spider' }
+      {name: 'invert'}
+      // {name: 'reaper'}
+      // {supertypes: 'Legendary', subtypes: 'wizard' }
       // {name: 'Deadly', subtypes: 'spider'}
       )
       .then(cards => {
         this.setState({cards: cards})
-        cards.forEach(card => console.log(card.name))
+        // cards.forEach(card => console.log(card.name))
       })
   }
   
@@ -34,18 +36,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          {cards
-          .map(card => {
-            return (
-              <div>
-                <p>{card.names} {card.manaCost} ({card.cmc})</p>
-                <p>{card.number}</p>
-                <p>{card.type} ({card.power}/{card.toughness})</p>
-                <img src={card.imageUrl} />
-              </div>
-            )
-          })}
+          {cards.map(card => <Card key={card.name+card.set} card={card}/>)}
         </header>
       </div>
     );
