@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-import Card from './components/Card.js'
+import Card from './components/Card.js';
 // import './App.css';
-
-const mtg = require('mtgsdk');
-
-
+import { cardSearch, testCardSearch } from './js/Search.js';
 
 class App extends Component {
   
@@ -15,20 +12,18 @@ class App extends Component {
     };
   }
 
-  componentDidMount() {
-    console.log(mtg)
-    mtg.card.where(
-      {name: 'invert'}
-      // {name: 'reaper'}
-      // {supertypes: 'Legendary', subtypes: 'wizard' }
-      // {name: 'Deadly', subtypes: 'spider'}
-      )
-      .then(cards => {
-        this.setState({cards: cards})
-        // cards.forEach(card => console.log(card.name))
-      })
-  }
+  async componentDidMount() {
+    const cards = await testCardSearch();
+    // await cardSearch(
+    //   {name: 'invert', contains: 'imageUrl'}
+      //   // {name: 'reaper'}
+      //   // {supertypes: 'Legendary', subtypes: 'wizard' }
+      //   // {name: 'Deadly', subtypes: 'spider'}
+    // );
   
+    this.setState({cards: cards});
+  }
+
   render() {
 
     const {cards} = this.state;
