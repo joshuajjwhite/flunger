@@ -4,10 +4,10 @@ import '../styles/Card.css';
 class CardName extends Component {
     
     render() {
-        const {name, names} = this.props;
+        const {name, names, className} = this.props;
 
         let cardName = (names || [name]).join(" // ");
-        return <p>{cardName}</p>
+        return <span className={className}>{cardName}</span>
     }
 }
   

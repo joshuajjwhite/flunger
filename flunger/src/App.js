@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Card from './components/Card.js';
-// import './App.css';
+import './App.css';
 import { cardSearch, testCardSearch } from './js/Search.js';
+import ScrollView from './components/ScrollView.js';
 
 class App extends Component {
   
@@ -14,13 +14,6 @@ class App extends Component {
 
   async componentDidMount() {
     const cards = await testCardSearch();
-    // await cardSearch(
-    //   {name: 'invert', contains: 'imageUrl'}
-      //   // {name: 'reaper'}
-      //   // {supertypes: 'Legendary', subtypes: 'wizard' }
-      //   // {name: 'Deadly', subtypes: 'spider'}
-    // );
-  
     this.setState({cards: cards});
   }
 
@@ -30,9 +23,9 @@ class App extends Component {
 
     return (
       <div className="App">
-        <header className="App-header">
-          {cards.map(card => <Card key={card.name+card.set} card={card}/>)}
-        </header>
+        <header className="App-header"></header>
+        <ScrollView className="Scroll-View" />
+        <div className="display"></div>
       </div>
     );
   }

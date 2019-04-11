@@ -1,10 +1,34 @@
-import Card from '../js/Card.js'
-const mtg = require('mtgsdk');
+import CardObj from './CardObj.js';
+import searchAdaptor from './MTGSearchAdaptor.js';
 
 async function cardSearch(crit) {
-    return await mtg.card.where(crit)
-        .filter(card => card.imageUrl)
-        .map(card => new Card(card));
+    const searchResults = await searchAdaptor.cardSearch(crit)
+        .filter(card => card.imageUrl);
+
+    const cards = convertPrintsToCards(searchResults);
+
+    return cards;
+}
+
+function convertPrintsToCards(searchResults) {
+    
+    const agregatedCards = searchResults
+        .reduce((acc, searchResult) => {
+
+            if (!acc[searchResult.name]) {
+                acc[searchResult.name] = new CardObj(searchResult);
+            } else {
+                acc[searchResult.name].addPrint(searchResult);
+            }
+
+            if (searchResult.name === "Reaper King Avatar"){
+                console.log(searchResult)}
+
+            return acc;
+
+        }, {});
+    
+    return Object.values(agregatedCards);
 }
 
 async function testCardSearch() {

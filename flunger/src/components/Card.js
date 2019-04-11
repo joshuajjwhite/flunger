@@ -17,15 +17,16 @@ class Card extends Component {
                     <img src={card.imageUrl} />
                 </div>
                 <div className="card-details">
+                    <span className="row detail">num of prints: {card.numOfPrints}</span>
                     <div className="row">
-                        <CardName name={card.name} names={card.names} />
-                        <Cost manaCostString={card.manaCost} />
-                        <div><p>({card.cmc})</p></div>
+                        <CardName className="detail" name={card.name} names={card.names} />
+                        <Cost className="detail" manaCostString={card.manaCost} />
+                        <span className="detail">({card.cmc})</span>
                     </div>
 
                     <div className="row">
-                        <p>{card.type}</p> 
-                        <PowerToughness power={card.power} toughness={card.toughness} />
+                        <span className="detail">{card.type}</span> 
+                        <PowerToughness className="detail" power={card.power} toughness={card.toughness} />
                     </div>
                 </div>
             </div>

@@ -12,11 +12,15 @@ function splitIntoManaSymbols(manaCostString) {
 class Cost extends Component {
     
     render() {
-        const {manaCostString} = this.props;
+        const {manaCostString, className} = this.props;
+        let costKey = 0;
 
         return (
-            splitIntoManaSymbols(manaCostString)
-                .map(manaSymbol => <CostSymbol manaSymbolString={manaSymbol} />)
+            <div className={className}>
+                {splitIntoManaSymbols(manaCostString)
+                    .map((manaSymbol, index) => <CostSymbol key={index} manaSymbolString={manaSymbol} />)
+                }
+            </div>
         );
     }
   }

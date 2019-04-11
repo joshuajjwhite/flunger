@@ -1,4 +1,26 @@
-.row {
-    display: flex;
-    flex-direction: row;
+.card-image {
+    width: 35%;
+}
+
+.card-image img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.card-details {
+    margin-left: 5px;
+}
+
+.card-details span {
+    font-size: .8em;
+}
+
+.detail {
+    margin-right: 3px;
+}
+
+.card-details .mana.medium {
+    /*TODO chnage to scale with text size*/
+    width: 16px;
+    height: 16px;
 }

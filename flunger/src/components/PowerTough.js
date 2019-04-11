@@ -4,10 +4,10 @@ import '../styles/Card.css';
 class PowerTough extends Component {
     
     render() {
-        const {power, toughness} = this.props;
+        const {power, toughness, className} = this.props;
 
         const ptValue = power && toughness ? `(${power}/${toughness})` : ""; 
-        return <p>{ptValue}</p>
+        return <span className={className}>{ptValue}</span>
     }
 }
   
