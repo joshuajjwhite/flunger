@@ -9,10 +9,12 @@ import PowerToughness from './PowerTough.js';
 class Card extends Component {
     
     render() {
-        const {card} = this.props;
+        const {card, onCardSelect, selected, className} = this.props;
 
         return (
-            <div className="row card">
+            <div 
+                className={"row card " + className}  
+                onClick={onCardSelect}>
                 <div className="card-image">
                     <img src={card.imageUrl} />
                 </div>

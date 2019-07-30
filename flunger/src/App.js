@@ -3,29 +3,33 @@ import './App.css';
 import { cardSearch, testCardSearch } from './js/Search.js';
 import ScrollView from './components/ScrollView.js';
 
+import Card from './components/Card.js';
+
 class App extends Component {
   
   constructor(props) {
     super(props);
     this.state = {
-      cards: [],
+      displayCard: null,
     };
   }
 
-  async componentDidMount() {
-    const cards = await testCardSearch();
-    this.setState({cards: cards});
+  onCardSelect(card) {
+    this.setState({displayCard: card});
   }
 
   render() {
 
-    const {cards} = this.state;
+    const {displayCard} = this.state;
 
     return (
       <div className="App">
         <header className="App-header"></header>
-        <ScrollView className="Scroll-View" />
-        <div className="display"></div>
+        <ScrollView className="Scroll-View" 
+          onCardSelect={this.onCardSelect.bind(this)} />
+        <div className="display">
+          {displayCard && <Card key={displayCard.key} card={displayCard} />}
+        </div>
       </div>
     );
   }

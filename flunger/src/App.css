@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  /* text-align: center; */
   height: 100%;
   display: flex;
   flex-direction: row;
@@ -14,6 +14,10 @@
 .row {
   display: flex;
   flex-direction: row;
+}
+
+.card.selected {
+  background-color: gray;
 }
 
 /* .App-logo {
