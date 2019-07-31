@@ -29,7 +29,7 @@ function ScrollView(props) {
                     className={selected && (selected.key === card.key) ? "selected" : ""}
                     key={card.key} 
                     card={card}
-                    onCardSelect={() => onCardSelect(card)}
+                    onCardSelect={onCardSelect.bind(this, card)}
                 />)}
         </div>
     );

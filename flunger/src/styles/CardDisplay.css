@@ -1,0 +1,16 @@
+.display div.card-details {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 10% 90%;
+    grid-template-rows: repeat(7, auto [row-start])
+}
+
+div.card-image {
+    width: 150px;
+    height: 208.5px;
+}
+
+div.label {
+    width: 100%;
+    text-align: right;
+}

@@ -24,6 +24,9 @@ function convertPrintsToCards(searchResults) {
             if (searchResult.name === "Reaper King Avatar"){
                 console.log(searchResult)}
 
+            if (searchResult.name === "Deadly Recluse"){
+                console.log(searchResult)}
+
             return acc;
 
         }, {});
@@ -36,6 +39,7 @@ async function testCardSearch() {
     const spider = await cardSearch({name: "deadly", subtypes: 'spider'});
     const reaper = await cardSearch({name: "reaper king"});
     const littleGirl = await cardSearch({name: "little girl"});
+    
     return [].concat(split, spider, reaper, littleGirl);
 }
 

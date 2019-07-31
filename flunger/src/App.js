@@ -3,7 +3,8 @@ import './App.css';
 import { cardSearch, testCardSearch } from './js/Search.js';
 import ScrollView from './components/ScrollView.js';
 
-import Card from './components/Card.js';
+import CardDisplay from './components/CardDisplay.js';
+import SearchBar from './components/SearchBar';
 
 class App extends Component {
   
@@ -25,10 +26,13 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header"></header>
-        <ScrollView className="Scroll-View" 
-          onCardSelect={this.onCardSelect.bind(this)} />
+        <div>
+          <SearchBar />
+          <ScrollView className="scroll-view" 
+            onCardSelect={this.onCardSelect.bind(this)} />
+        </div>
         <div className="display">
-          {displayCard && <Card key={displayCard.key} card={displayCard} />}
+          {displayCard && <CardDisplay card={displayCard} />}
         </div>
       </div>
     );

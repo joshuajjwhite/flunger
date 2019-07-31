@@ -61,6 +61,18 @@ class CardObj {
     get toughness() {
         return this._getPrint().toughness;
     }
+
+    get text() {
+        return this._getPrint().text;
+    }
+
+    get printings() {
+        return this._getPrint().printings;
+    }
+
+    get sets() {
+        return this._prints.map(print => print.setName);
+    }
 }
 
 export default CardObj;
