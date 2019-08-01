@@ -5,6 +5,7 @@ import ScrollView from './components/ScrollView.js';
 
 import CardDisplay from './components/CardDisplay.js';
 import SearchBar from './components/SearchBar';
+import SearchDisplay from './components/SearchDisplay';
 
 class App extends Component {
   
@@ -26,11 +27,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header"></header>
-        <div>
-          <SearchBar />
-          <ScrollView className="scroll-view" 
-            onCardSelect={this.onCardSelect.bind(this)} />
-        </div>
+        <SearchDisplay onCardSelect={this.onCardSelect.bind(this)}/>
         <div className="display">
           {displayCard && <CardDisplay card={displayCard} />}
         </div>

@@ -1,4 +1,4 @@
-.search-wrapper {
+.search-wrapper form {
     background-color: darkred;
     display: grid;
     grid-template-columns: 80% 20%;
@@ -10,12 +10,12 @@
     padding: 0px 0px 0px 5px;
 }
 
-.search-wrapper button {
+.search-wrapper .button {
     margin: 5px 5px 5px 0px;
     padding: 0px;
 }
 
-.search-wrapper button, .search-wrapper input {
+.search-wrapper input {
     border: none;
     border-radius: .1rem;
     height: 30px;

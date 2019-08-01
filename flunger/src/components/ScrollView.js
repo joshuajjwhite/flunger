@@ -7,15 +7,7 @@ import Card from './Card.js';
 
 function ScrollView(props) {
 
-    const [cards, setCards] = useState([]);
     const [selected, setSelected] = useState(null);
-
-    useEffect(() => {
-        (async () => {
-            const cards = await testCardSearch();
-            setCards(cards);
-        })();
-    }, []);
 
     function onCardSelect(card) {
         setSelected(card)
@@ -24,7 +16,7 @@ function ScrollView(props) {
 
     return (
         <div className="scrollable">
-            {cards.map(card => 
+            {props.cards.map(card => 
                 <Card 
                     className={selected && (selected.key === card.key) ? "selected" : ""}
                     key={card.key} 

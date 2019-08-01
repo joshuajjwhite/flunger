@@ -2,21 +2,31 @@ import React, { useState, useEffect } from 'react';
 
 import '../styles/SearchBar.css';
 
-function SearchBar({onSubmit}) {
+function SearchBar({handleSubmit}) {
+
+    const [searchTerm, setSearchTerm] = useState("");
+
+    function handleChange(event) {
+        setSearchTerm(event.target.value);
+    }
 
     return (
         <div className="search-wrapper">
-            {/* <form className="form" id="searchForm"> */}
+            <form className="form" id="searchForm" 
+                onSubmit={(event) => {
+                    event.preventDefault()
+                    handleSubmit(searchTerm)
+                }}>
                 <input
                     type="text"
                     className="search"
                     id="search"
                     placeholder="Search Term"
+                    value={searchTerm}
+                    onChange={handleChange}
                 />
-                <button className="button is-info" onClick={onSubmit}>
-                    Search
-                </button>
-            {/* </form> */}
+                <input className="button" type="submit" value="Submit" />
+            </form>
         </div>
     );
 }
