@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { cardSearch, testCardSearch } from '../js/Search.js';
+import styled from 'styled-components';
 
 import ScrollView from './ScrollView.js';
 import SearchBar from './SearchBar';
+import ViewContainer from './ViewContainer.js'
 
-function SearchDisplay({onCardSelect}) {
+function SearchDisplay({handleCardSelect}) {
 
     const [cards, setCards] = useState([]);
-    const [selected, setSelected] = useState(null);
 
     useEffect(() => {
         (async () => {
@@ -22,15 +23,16 @@ function SearchDisplay({onCardSelect}) {
     };
 
     return (
-        <div>
+        <ViewContainer>
             <SearchBar 
                 handleSubmit={handleSearch}
             />
+        
             <ScrollView 
-                onCardSelect={onCardSelect} 
+                handleCardSelect={handleCardSelect} 
                 cards={cards}
             />
-        </div>
+        </ViewContainer>
     );
 }
 

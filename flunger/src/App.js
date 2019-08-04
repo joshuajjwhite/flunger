@@ -1,39 +1,21 @@
-import React, { Component } from 'react';
+import React, { useState, useCallback } from 'react';
+import StyleWrapper from './components/StyleWrapper.js'
 import './App.css';
-import { cardSearch, testCardSearch } from './js/Search.js';
-import ScrollView from './components/ScrollView.js';
 
 import CardDisplay from './components/CardDisplay.js';
-import SearchBar from './components/SearchBar';
 import SearchDisplay from './components/SearchDisplay';
 
-class App extends Component {
-  
-  constructor(props) {
-    super(props);
-    this.state = {
-      displayCard: null,
-    };
-  }
+function App(props) {
 
-  onCardSelect(card) {
-    this.setState({displayCard: card});
-  }
+  const [displayCard, setDisplayCard] = useState(null)
 
-  render() {
-
-    const {displayCard} = this.state;
-
-    return (
-      <div className="App">
-        <header className="App-header"></header>
-        <SearchDisplay onCardSelect={this.onCardSelect.bind(this)}/>
-        <div className="display">
-          {displayCard && <CardDisplay card={displayCard} />}
-        </div>
-      </div>
-    );
-  }
+  return (
+    <StyleWrapper className="App">
+      <header className="App-header"></header>
+      <SearchDisplay handleCardSelect={setDisplayCard}/>
+      <CardDisplay card={displayCard} />
+    </StyleWrapper>
+  );
 }
 
 export default App;

@@ -1,6 +1,26 @@
 import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
 
-import '../styles/SearchBar.css';
+const StyledForm = styled.form`
+background-color: var(--primary);
+display: grid;
+grid-template-columns: 80% 20%;
+grid-template-rows: 100%;
+`
+
+const StyledInput = styled.input`
+margin: 5px;
+padding: 0px 0px 0px 5px;
+border: none;
+border-radius: .1rem;
+height: 30px;
+`
+
+const StyledInputSubmit = styled(StyledInput)`
+margin: 5px 5px 5px 0px;
+padding: 0px;
+background-color: var(--secondary);
+`
 
 function SearchBar({handleSubmit}) {
 
@@ -12,21 +32,19 @@ function SearchBar({handleSubmit}) {
 
     return (
         <div className="search-wrapper">
-            <form className="form" id="searchForm" 
-                onSubmit={(event) => {
+            <StyledForm onSubmit={(event) => {
                     event.preventDefault()
                     handleSubmit(searchTerm)
                 }}>
-                <input
+                <StyledInput
                     type="text"
-                    className="search"
                     id="search"
                     placeholder="Search Term"
                     value={searchTerm}
                     onChange={handleChange}
                 />
-                <input className="button" type="submit" value="Submit" />
-            </form>
+                <StyledInputSubmit type="submit" value="Search" />
+            </StyledForm>
         </div>
     );
 }
