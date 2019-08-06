@@ -42,4 +42,7 @@ function ScrollView({cards, handleCardSelect}) {
     );
 }
 
-export default React.memo(ScrollView);
+export default 
+React.memo(
+    ScrollView
+    );

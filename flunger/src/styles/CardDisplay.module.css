@@ -1,7 +1,7 @@
 .cardDetails {
     width: 100%;
     display: grid;
-    grid-template-columns: 10% 90%;
+    grid-template-columns: auto auto;
     grid-template-rows: repeat(7, auto [row-start])
 }
 
