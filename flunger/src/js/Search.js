@@ -21,12 +21,6 @@ function convertPrintsToCards(searchResults) {
                 acc[searchResult.name].addPrint(searchResult);
             }
 
-            if (searchResult.name === "Reaper King Avatar"){
-                console.log(searchResult)}
-
-            if (searchResult.name === "Deadly Recluse"){
-                console.log(searchResult)}
-
             return acc;
 
         }, {});
